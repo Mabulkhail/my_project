@@ -1,0 +1,41 @@
+MDScreen:
+    name: 'welcome'
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+        Image:
+            source:"images/MAP-LOGO-768x1024.jpg"
+            pos_hint: {"center_x": .5, "center_y": .55}
+            size_hint:.5, .65
+        MDLabel:
+            text: "Indoor Navigation for Faculty Member floor"
+            font_size: "26sp"
+            pos_hint: {"center_x": 0.54, "center_y": .85}
+            color: rgba(0, 0, 59, 255)
+        MagicButton:
+            text: "Sign in"
+            pos_hint: {"center_x": .5, "center_y": .24}
+            on_press:
+                self.grow()
+                root.manager.current = "login"
+                root.manager.transition.direction = "left"
+        MagicButton:
+            text: "Go as guest"
+            pos_hint: {"center_x": .5, "center_y": .14}
+            on_press:
+                self.grow()
+                root.manager.current = "main_guest"
+                root.manager.transition.direction = "left"
+<MagicButton@MagicBehavior+Button>:
+    text:root.text
+    size_hint: .5, .065
+    pos_hint: root.pos_hint
+    background_color: 0, 0, 0, 0
+    on_press:
+        root.on_press
+    canvas.before:
+        Color:
+            rgb: rgba(52, 0, 231, 255)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [5]

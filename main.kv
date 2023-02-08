@@ -1,0 +1,76 @@
+MDScreen:
+
+    name: 'main'
+    md_bg_color: "#09143C"
+    MDBoxLayout:
+        orientation:'vertical'
+
+        MDBoxLayout:
+            size_hint_y:.25
+            padding:dp(25)
+            MDBoxLayout:
+                orientation:"vertical"
+                MDLabel:
+                    text:"Home"
+                    font_style:"H4"
+                MDBoxLayout:
+                    adaptive_size:True
+                    spacing:dp(10)
+
+
+            MDIconButton:
+                icon:"images/login.png"
+                theme_icon_color: "Custom"
+
+                on_release:
+                    root.manager.transition.direction = "left"
+                    #root.manager.current = "login"
+        MDGridLayout:
+            size_hint_y:.75
+            cols:2
+            padding:[dp(15),dp(15),dp(15),dp(35)]
+            spacing:dp(15)
+
+
+            ElementCard:
+                image:"images/clipart333648.png"
+                text:"Map"
+                on_release:
+                    root.manager.current = "map"
+                    root.manager.transition.direction = "left"
+
+            ElementCard:
+                image:"images/faculty_members.png"
+                text:"Faculty Members"
+                on_release:
+                    root.manager.current = "faculty_page"
+                    root.manager.transition.direction = "left"
+
+            ElementCard:
+                image: "images/log info.png"
+                text:"About"
+
+
+
+
+<ElementCard@MDCard>:
+    md_bg_color: "#003366"
+    padding:dp(15)
+    spacing:dp(15)
+    radius:dp(25)
+    ripple_behavior: True
+    image:''
+    text:""
+    items_count:""
+    subtext:''
+
+    orientation:'vertical'
+    Image:
+        source:root.image
+
+    MDBoxLayout:
+        orientation:'vertical'
+        MDLabel:
+            halign:"center"
+            text:root.text
+            font_style:"H6"

@@ -1,0 +1,52 @@
+MDScreen:
+    name: 'main_guest'
+    md_bg_color: "#09143C"
+    MDBoxLayout:
+        orientation:'vertical'
+        MDIconButton:
+            icon: "arrow-left"
+            pos_hint: {"center_y": .95}
+            user_font_size: "30sp"
+            theme_text_color: "Custom"
+            text_color:  1, 1, 1, 1
+            on_release:
+                root.manager.transition.direction = "right"
+                root.manager.current = "welcome"
+        MDBoxLayout:
+            size_hint_y:.25
+            padding:dp(25)
+            MDBoxLayout:
+                orientation:"vertical"
+                MDLabel:
+                    text:"Home"
+                    font_style:"H4"
+                MDBoxLayout:
+                    adaptive_size:True
+                    spacing:dp(10)
+
+        MDGridLayout:
+            size_hint_y:.75
+            cols:2
+            padding:[dp(15),dp(15),dp(15),dp(35)]
+            spacing:dp(15)
+
+            ElementCard:
+                image:"images/clipart333648.png"
+                text:"Map"
+                on_release:
+                    root.manager.current = "map"
+                    root.manager.transition.direction = "left"
+
+            ElementCard:
+                image:"images/faculty_members.png"
+                text:"Faculty Members"
+                on_release:
+                    root.manager.current = "faculty_page"
+                    root.manager.transition.direction = "left"
+
+            ElementCard:
+                image: "images/log info.png"
+                text:"About"
+
+
+

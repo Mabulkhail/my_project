@@ -1,0 +1,49 @@
+MDScreen:
+
+    name: "track"
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+        Image:
+            id: dirction
+            source:"images/left-arrow.png"
+            pos_hint: {"center_x": .5, "center_y": .55}
+            size_hint:.5, .65
+        MDIconButton:
+            icon: "arrow-left"
+            pos_hint: {"center_y": .95}
+            user_font_size: "30sp"
+            theme_text_color: "Custom"
+            text_color: rgba(26, 24, 58, 255)
+            on_release:
+                root.manager.transition.direction = "right"
+                root.manager.current = "main"
+        MDLabel:
+            text: "Tracking"
+            font_size: "23sp"
+            pos_hint: {"center_x": 0.9, "center_y": .95}
+            color: rgba(0, 0, 59, 255)
+
+
+
+
+
+
+        MagicButton:
+            text: "scan"
+            on_press:
+                self.grow()
+                app.tracking()
+<MagicButton@MagicBehavior+Button>:
+    text:root.text
+    size_hint: .5, .065
+    pos_hint: {"center_x": .5, "center_y": .21}
+    background_color: 0, 0, 0, 0
+    on_press:
+        root.on_press
+    canvas.before:
+        Color:
+            rgb: rgba(52, 0, 231, 255)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [5]

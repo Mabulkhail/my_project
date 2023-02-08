@@ -1,0 +1,122 @@
+MDScreen:
+
+    name: 'signup'
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+        MDIconButton:
+            icon: "arrow-left"
+            pos_hint: {"center_y": .95}
+            user_font_size: "30sp"
+            theme_text_color: "Custom"
+            text_color: rgba(26, 24, 58, 255)
+            on_release:
+                root.manager.transition.direction = "right"
+                root.manager.current = "welcome"
+        MDLabel:
+            text: "Welcome !"
+            font_size: "26sp"
+            pos_hint: {"center_x": 0.6, "center_y": .85}
+            color: rgba(0, 0, 59, 255)
+
+        MDLabel:
+            text: "Sign up, only for faculty member"
+            font_size: "13sp"
+
+            pos_hint: {"center_x": 0.3, "center_y": .79}
+            halign: "center"
+            color: '#FFFFFF'
+        MDFloatLayout:
+            size_hint: .7, .07
+            pos_hint: {"center_x": .5, "center_y": .63}
+            TextInput:
+                id: signup_email
+                hint_text: "Email"
+                size_hint_y: .75
+                pos_hint: {"center_x": .43, "center_y": .5}
+
+                background_color: 1, 1, 1, 0
+                foreground_color: rgba(0, 0, 59, 255)
+                cursor_color: rgba(0, 0, 59, 255)
+                font_size: "14sp"
+                cursor_width: "2sp"
+                multiline: False
+            MDFloatLayout:
+                pos_hint: {"center_x": .45, "center_y": 0}
+                size_hint_y: .03
+                md_bg_color: rgba(178, 178, 178, 255)
+
+        MDFloatLayout:
+            size_hint: .7, .07
+            pos_hint: {"center_x": .5, "center_y": .5}
+            TextInput:
+                id: signup_password
+                hint_text: "Password"
+                size_hint_y: .75
+                pos_hint: {"center_x": .43, "center_y": .5}
+                background_color: 1, 1, 1, 0
+                #foreground_color: rgba(0, 0, 59, 255)
+                #cursor_color: rgba(0, 0, 59, 255)
+                font_size: "14sp"
+                cursor_width: "2sp"
+                multiline: False
+                password: True
+            MDFloatLayout:
+                pos_hint: {"center_x": .45, "center_y": 0}
+                size_hint_y: .03
+                md_bg_color: rgba(178, 178, 178, 255)
+        MDFloatLayout:
+            size_hint: .7, .07
+            pos_hint: {"center_x": .5, "center_y": .37}
+            TextInput:
+                id: signup_confirm_password
+                hint_text: "Confirm Password"
+                size_hint_y: .75
+                pos_hint: {"center_x": .43, "center_y": .5}
+
+                background_color: 1, 1, 1, 0
+                foreground_color: rgba(0, 0, 59, 255)
+                cursor_color: rgba(0, 0, 59, 255)
+                font_size: "14sp"
+                cursor_width: "2sp"
+                multiline: False
+                password: True
+            MDFloatLayout:
+                pos_hint: {"center_x": .45, "center_y": 0}
+                size_hint_y: .03
+                md_bg_color: rgba(178, 178, 178, 255)
+            MDFloatLayout:
+                pos_hint: {"center_x": .45, "center_y": 0}
+                size_hint_y: .03
+                md_bg_color: rgba(178, 178, 178, 255)
+        MagicButton:
+            text: "Sign up"
+            on_press:
+                self.grow()
+                app.signup_data()
+
+        MDTextButton:
+            text: "Have an Account? Signin."
+            pos_hint: {"center_x": .5, "center_y": .15}
+            color: rgba(68, 78, 132, 255)
+            font_size: "12sp"
+            on_release:
+                root.manager.current = "login"
+                root.manager.transition.direction = "right"
+
+
+<MagicButton@MagicBehavior+Button>:
+    text:root.text
+    size_hint: .5, .065
+    pos_hint: {"center_x": .5, "center_y": .21}
+    background_color: 0, 0, 0, 0
+    on_press:
+        root.on_press
+    canvas.before:
+        Color:
+            rgb: rgba(52, 0, 231, 255)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [5]
+
+
