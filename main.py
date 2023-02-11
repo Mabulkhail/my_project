@@ -45,7 +45,102 @@ class MainApp(MDApp):
         screen_manager.add_widget(Builder.load_file("map.kv"))
         screen_manager.add_widget(Builder.load_file("signup.kv"))
         screen_manager.add_widget(Builder.load_file("main_guest.kv"))
-        screen_manager.add_widget(Builder.load_file("faculty_page.kv"))
+        screen_manager.add_widget(Builder.load_string("MDScreen:
+    name: 'faculty_page'
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+        MDLabel:
+            text: "Departments"
+            font_size: "26sp"
+            pos_hint: {"center_x": 0.75, "center_y": .95}
+            color: rgba(0, 0, 0, 255)
+        MDIconButton:
+            icon: "arrow-left"
+            pos_hint: {"center_y": .95}
+            user_font_size: "30sp"
+            theme_text_color: "Custom"
+            text_color: rgba(26, 24, 58, 255)
+            on_release:
+                root.manager.transition.direction = "right"
+                root.manager.current = "main"
+
+        MDFloatLayout:
+            size_hint: .9, .07
+            pos_hint: {"center_x": .48, "center_y": .73}
+            MDLabel:
+                text: "Computer Department"
+                font_size: "16sp"
+                pos_hint: {"center_x": 0.48, "center_y": .85}
+                color: rgba(0, 0, 0, 255)
+            MDIconButton:
+                icon: "arrow-down"
+                theme_icon_color: "Custom"
+                pos_hint: {"center_x": 0.86, "center_y": .85}
+                user_font_size: "30sp"
+                text_color: rgba(26, 24, 58, 255)
+
+            MDFloatLayout:
+                pos_hint: {"center_x": .45, "center_y": 0}
+                size_hint_y: .03
+                md_bg_color: rgba(178, 178, 178, 255)
+
+        MDFloatLayout:
+            size_hint: .9, .07
+            pos_hint: {"center_x": .48, "center_y": .63}
+            MDLabel:
+                text: "Physics Department"
+                font_size: "16sp"
+                pos_hint: {"center_x": 0.48, "center_y": .85}
+                color: rgba(0, 0, 0, 255)
+            MDIconButton:
+                icon: "arrow-down"
+                theme_icon_color: "Custom"
+                pos_hint: {"center_x": 0.86, "center_y": .85}
+                user_font_size: "30sp"
+                text_color: rgba(26, 24, 58, 255)
+
+            MDFloatLayout:
+                pos_hint: {"center_x": .45, "center_y": 0}
+                size_hint_y: .03
+                md_bg_color: rgba(178, 178, 178, 255)
+
+        MDFloatLayout:
+            size_hint: .9, .07
+            pos_hint: {"center_x": .48, "center_y": .53}
+            MDLabel:
+                text: "Chemistry Department"
+                font_size: "16sp"
+                pos_hint: {"center_x": 0.48, "center_y": .85}
+                color: rgba(0, 0, 0, 255)
+            MDIconButton:
+                icon: "arrow-down"
+                theme_icon_color: "Custom"
+                pos_hint: {"center_x": 0.86, "center_y": .85}
+                user_font_size: "30sp"
+                text_color: rgba(26, 24, 58, 255)
+
+            MDFloatLayout:
+                pos_hint: {"center_x": .45, "center_y": 0}
+                size_hint_y: .03
+                md_bg_color: rgba(178, 178, 178, 255)
+
+<MagicButton@MagicBehavior+Button>:
+    text:root.text
+    size_hint: .5, .065
+    pos_hint: {"center_x": .5, "center_y": .34}
+    background_color: 0, 0, 0, 0
+    on_press:
+        root.on_press
+    canvas.before:
+        Color:
+            rgb: rgba(52, 0, 231, 255)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [5]
+
+
+"))
         screen_manager.add_widget(Builder.load_file("login.kv"))
         screen_manager.add_widget(Builder.load_file("information.kv"))
         return screen_manager
